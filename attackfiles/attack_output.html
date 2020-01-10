@@ -1,0 +1,105 @@
+<html>
+<head>
+<script>
+  function expandCollapse(event) {
+    event.nextElementSibling.classList = event.nextElementSibling.classList == "hide" ? "show" : "hide";
+  }
+  function mouseOver(event) {
+    event.style.background = event.style.background == "khaki" ? "white" : "khaki";
+  }
+</script>
+<style>
+  table, tr, th, td {
+    padding: 5px;
+    border: 1px solid black;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  [data-result="Fail"] {
+    background: #EC7063;
+  }
+  [data-result="Pass"] {
+    background: #76D7C4;
+  }
+  [data-result="Total"] {
+    background: khaki;
+  }
+  .hide {
+    display: none;
+  }
+</style>
+</head>
+<body>
+<h2>Automated Security Test Report</h2>
+<table>
+<tr>
+<th>Pass</th>
+<th>Fail</th>
+<th>Total</th>
+</tr>
+<tr>
+<td data-result="Pass">4</td>
+<td data-result="Fail">4</td>
+<td data-result="Total">8</td>
+</tr>
+</table>
+<br>
+<table>
+<tr>
+<th align="left">Attack</th>
+<th align="left">Result</th>
+<th align="left">Context</th>
+</tr>
+<tr onmouseover="mouseOver(this)" onmouseout="mouseOver(this)" onclick="expandCollapse(this)">
+<td>forward_secrecy</td><td data-result=Fail>Fail</td><td>google.co.uk</td>
+</tr>
+<tr class="hide">
+<td colspan=3> TLS 1.2 supporting ['TLS_RSA_WITH_AES_256_GCM_SHA384', 'TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384', 'TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA', 'TLS_RSA_WITH_AES_256_CBC_SHA', 'TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256', 'TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA', 'TLS_RSA_WITH_AES_128_CBC_SHA', 'TLS_RSA_WITH_AES_128_GCM_SHA256', 'TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256', 'TLS_RSA_WITH_3DES_EDE_CBC_SHA'], should only be ['TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384', 'TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256'] TLS 1.1 should not be supported TLS 1.0 should not be supported </td>
+</tr>
+<tr onmouseover="mouseOver(this)" onmouseout="mouseOver(this)" onclick="expandCollapse(this)">
+<td>forward_secrecy</td><td data-result=Fail>Fail</td><td>google.com</td>
+</tr>
+<tr class="hide">
+<td colspan=3> TLS 1.2 supporting ['TLS_RSA_WITH_AES_256_GCM_SHA384', 'TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384', 'TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA', 'TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256', 'TLS_RSA_WITH_AES_256_CBC_SHA', 'TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256', 'TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA', 'TLS_RSA_WITH_AES_128_CBC_SHA', 'TLS_RSA_WITH_AES_128_GCM_SHA256', 'TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256', 'TLS_RSA_WITH_3DES_EDE_CBC_SHA'], should only be ['TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384', 'TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256'] TLS 1.1 should not be supported TLS 1.0 should not be supported </td>
+</tr>
+<tr onmouseover="mouseOver(this)" onmouseout="mouseOver(this)" onclick="expandCollapse(this)">
+<td>certificate_chain</td><td data-result=Fail>Fail</td><td>google.co.uk</td>
+</tr>
+<tr class="hide">
+<td colspan=3>The certificate chain is invalid ['Index: 0 Name: *.google.co.uk Algorithm sha256WithRSAEncryption', 'Index: 1 Name: GTS CA 1O1 Algorithm sha256WithRSAEncryption', 'Index: 2 Name: GlobalSign Algorithm sha1WithRSAEncryption']</td>
+</tr>
+<tr onmouseover="mouseOver(this)" onmouseout="mouseOver(this)" onclick="expandCollapse(this)">
+<td>certificate_chain</td><td data-result=Fail>Fail</td><td>google.com</td>
+</tr>
+<tr class="hide">
+<td colspan=3>The certificate chain is invalid ['Index: 0 Name: *.google.com Algorithm sha256WithRSAEncryption', 'Index: 1 Name: GTS CA 1O1 Algorithm sha256WithRSAEncryption', 'Index: 2 Name: GlobalSign Algorithm sha1WithRSAEncryption']</td>
+</tr>
+<tr onmouseover="mouseOver(this)" onmouseout="mouseOver(this)" onclick="expandCollapse(this)">
+<td>redirect</td><td data-result=Pass>Pass</td><td>http://google.co.uk</td>
+</tr>
+<tr class="hide">
+<td colspan=3>301 redirect sent</td>
+</tr>
+<tr onmouseover="mouseOver(this)" onmouseout="mouseOver(this)" onclick="expandCollapse(this)">
+<td>redirect</td><td data-result=Pass>Pass</td><td>http://google.com</td>
+</tr>
+<tr class="hide">
+<td colspan=3>301 redirect sent</td>
+</tr>
+<tr onmouseover="mouseOver(this)" onmouseout="mouseOver(this)" onclick="expandCollapse(this)">
+<td>hostname</td><td data-result=Pass>Pass</td><td>google.co.uk</td>
+</tr>
+<tr class="hide">
+<td colspan=3>TLS certificates match hostname, are trusted and the chain order is valid</td>
+</tr>
+<tr onmouseover="mouseOver(this)" onmouseout="mouseOver(this)" onclick="expandCollapse(this)">
+<td>hostname</td><td data-result=Pass>Pass</td><td>google.com</td>
+</tr>
+<tr class="hide">
+<td colspan=3>TLS certificates match hostname, are trusted and the chain order is valid</td>
+</tr>
+</table>
+<br>Attacked: 2020-01-07 17:00:01.000268</body>
+</html>

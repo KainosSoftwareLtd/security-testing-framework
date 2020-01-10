@@ -1,0 +1,5 @@
+# Created by .ignore support plugin (hsz.mobi)
+/.idea/
+/security-testing-framework.iml
+*.pyc
+.DS_Store
